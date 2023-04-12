@@ -6,36 +6,50 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Theatre theatre=new Theatre("Armando Manzanero",10,20);
-        List<Theatre.Seat> seatCopy=new ArrayList<>(theatre.seats);
-        seatCopy.get(1).reserve();
-        printSeats(seatCopy);
-        if (theatre.reserveSeat("A02")){
-            System.out.println("Please pay for A02");
+        Theatre theatre=new Theatre("Armando Manzanero",8,12);
+
+        if (theatre.reserveSeat("D02")){
+            System.out.println("Please pay for D02");
         }
         else{
             System.out.println("Seat already reserved");
         }
+        if (theatre.reserveSeat("D02")){
+            System.out.println("Please pay for D02");
+        }
+        else{
+            System.out.println("Seat already reserved");
+        }
+        if (theatre.reserveSeat("B21")){
+            System.out.println("Please pay for B21");
+        }
+        else{
+            System.out.println("Seat already reserved");
+        }
+        List<Theatre.Seat> reverseSeats=new ArrayList<>(theatre.getSeats());
+        Collections.reverse(reverseSeats);
+        printSeats(reverseSeats);
+
+        List<Theatre.Seat> priceSeats = new ArrayList<>(theatre.getSeats());
+        priceSeats.add(theatre.new Seat("B00",13.00));
+        priceSeats.add(theatre.new Seat("A00",13.00));
+        Collections.sort(priceSeats,Theatre.PRICE_ORDER);
+        printSeats(priceSeats);
         //Collections.reverse(seatCopy); reverce list
-        Collections.shuffle(seatCopy); //aleatory list
+       // Collections.shuffle(seatCopy); //aleatory list
 
-        System.out.println(" Printing Seatcopy");
-        printSeats(seatCopy);
-        System.out.println("Printing Theatre seat");
-        printSeats(theatre.seats);
 
-        Theatre.Seat minSeat= Collections.min(seatCopy);
+
+      /*  Theatre.Seat minSeat= Collections.min(seatCopy);
         Theatre.Seat maxSeat=Collections.max(seatCopy);
         System.out.println("Min Seat "+minSeat.getSeatNumber());
         System.out.println("Max seat "+maxSeat.getSeatNumber());
+       */
 
-        sortList(seatCopy);
-        System.out.println("Sorted list with method static");
-        printSeats(seatCopy);
     }
     public static void printSeats(List<Theatre.Seat> list){
         for(Theatre.Seat seat: list){
-            System.out.println(seat.getSeatNumber());
+            System.out.println(" "+seat.getSeatNumber()+" $"+seat.getPrice());
         }
         System.out.println();
         System.out.println("============================================================================================");
