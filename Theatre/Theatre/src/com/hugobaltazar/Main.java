@@ -17,7 +17,7 @@ public class Main {
             System.out.println("Seat already reserved");
         }
         //Collections.reverse(seatCopy); reverce list
-        //Collections.shuffle(seatCopy); //aleatory list
+        Collections.shuffle(seatCopy); //aleatory list
 
         System.out.println(" Printing Seatcopy");
         printSeats(seatCopy);
@@ -28,6 +28,10 @@ public class Main {
         Theatre.Seat maxSeat=Collections.max(seatCopy);
         System.out.println("Min Seat "+minSeat.getSeatNumber());
         System.out.println("Max seat "+maxSeat.getSeatNumber());
+
+        sortList(seatCopy);
+        System.out.println("Sorted list with method static");
+        printSeats(seatCopy);
     }
     public static void printSeats(List<Theatre.Seat> list){
         for(Theatre.Seat seat: list){
@@ -35,5 +39,13 @@ public class Main {
         }
         System.out.println();
         System.out.println("============================================================================================");
+    }
+    public static void sortList(List<? extends Theatre.Seat> list){
+        for (int i=0; i<list.size()-1;i++){
+            for (int j=i+1; j<list.size();j++){
+                if (list.get(i).compareTo(list.get(j))>0)
+                    Collections.swap(list,i,j);
+            }
+        }
     }
 }
