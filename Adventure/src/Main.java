@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 public class Main {
     public static HashMap<Integer,Location> locations=new HashMap<>();
@@ -11,17 +12,45 @@ public class Main {
         locations.put(4, new Location(4, "You are in a valley beside a stream"));
         locations.put(5, new Location(5, "You are in the forest"));
 
+        locations.get(1).addExist("E",3);
+        locations.get(1).addExist("S",4);
+        locations.get(1).addExist("W",2);
+        locations.get(1).addExist("N",5);
+        //locations.get(1).addExist("Q",0);
+
+        locations.get(3).addExist("W",1);
+        //locations.get(3).addExist("Q",0);
+
+        locations.get(4).addExist("N",1);
+        locations.get(4).addExist("W",2);
+        //locations.get(4).addExist("Q",0);
+
+        locations.get(2).addExist("N",5);
+        //locations.get(2).addExist("Q",0);
+
+        locations.get(5).addExist("S",1);
+        locations.get(5).addExist("W",2);
+        //locations.get(5).addExist("Q",0);
+
         int loc=1;
         while (true){
             System.out.println(locations.get(loc).getDescription());
-            if (loc==1){
+            if (loc==0){
                 break;
             }
-            loc=scanner.nextInt();
-            if(!locations.containsKey(loc)){
-                System.out.println("You cannot go in that direction");
+            Map<String, Integer> exits=locations.get(loc).getExists();
+            System.out.println("Exists available");
+            for (String e:exits.keySet()){
+                System.out.print(e+", ");
+            }
+            System.out.println();
+
+            String destination =scanner.nextLine().toUpperCase();
+            if (exits.containsKey(destination)){
+                loc=exits.get(destination);
+            }else{
+                System.out.println("You cannot go to that destination");
             }
         }
     }
-
 }
