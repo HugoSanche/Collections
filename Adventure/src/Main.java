@@ -2,8 +2,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 public class Main {
+    enum Cardinal{NORTH,EAST,WEST,SOUTH }
     public static HashMap<Integer,Location> locations=new HashMap<>();
     public static void main(String[] args) {
+        // Change the program to allow players to type full words, or phrases, then move to the
+        // correct location based upon their input.
+        // The player should be able to type commands such as "Go West", "run South", or just "East"
+        // and the program will move to the appropriate location if there is one.  As at present, an
+        // attempt to move in an invalid direction should print a message and remain in the same place.
+        //
+        // Single letter commands (N, W, S, E, Q) should still be available.
+
         Scanner scanner=new Scanner(System.in);
         locations.put(0, new Location(0, "You are sitting in front of a computer learning Java"));
         locations.put(1, new Location(1, "You are standing at the end of a road before a small brick building"));
@@ -16,21 +25,17 @@ public class Main {
         locations.get(1).addExist("S",4);
         locations.get(1).addExist("W",2);
         locations.get(1).addExist("N",5);
-        //locations.get(1).addExist("Q",0);
 
         locations.get(3).addExist("W",1);
-        //locations.get(3).addExist("Q",0);
 
         locations.get(4).addExist("N",1);
         locations.get(4).addExist("W",2);
-        //locations.get(4).addExist("Q",0);
 
         locations.get(2).addExist("N",5);
-        //locations.get(2).addExist("Q",0);
 
         locations.get(5).addExist("S",1);
         locations.get(5).addExist("W",2);
-        //locations.get(5).addExist("Q",0);
+
 
         int loc=1;
         while (true){
@@ -46,10 +51,26 @@ public class Main {
             System.out.println();
 
             String destination =scanner.nextLine().toUpperCase();
-            if (exits.containsKey(destination)){
-                loc=exits.get(destination);
-            }else{
+            String[] direcction=destination.split(" ");
+            boolean bandera=false;
+
+                for(String s:direcction){
+                    if (s.equalsIgnoreCase("q")){
+                        //System.exit(0);
+                        loc=exits.get(String.valueOf(s.charAt(0)));
+                        bandera=true;
+                        //return;
+                    }
+                    for (var values : Cardinal.values()){
+                        if (values.toString().equals(s)){
+                            loc=exits.get(String.valueOf(s.charAt(0)));
+                            bandera=true;
+                        }
+                }
+            }
+            if (!bandera){
                 System.out.println("You cannot go to that destination");
+                System.out.println("You are in the same place");
             }
         }
     }
