@@ -21,21 +21,27 @@ public class Main {
         locations.put(4, new Location(4, "You are in a valley beside a stream"));
         locations.put(5, new Location(5, "You are in the forest"));
 
-        locations.get(1).addExist("E",3);
-        locations.get(1).addExist("S",4);
-        locations.get(1).addExist("W",2);
-        locations.get(1).addExist("N",5);
+        Map<String, Integer> tempExit=new HashMap<String,Integer>();
+        tempExit.put("W",2);
 
-        locations.get(3).addExist("W",1);
+        tempExit=new HashMap<String,Integer>();
+        tempExit.put("E",3);
+        tempExit.put("S",4);
+        tempExit.put("N",5);
 
-        locations.get(4).addExist("N",1);
-        locations.get(4).addExist("W",2);
+        tempExit=new HashMap<String,Integer>();
+        tempExit.put("N",5);
 
-        locations.get(2).addExist("N",5);
+        tempExit=new HashMap<String,Integer>();
+        tempExit.put("W",1);
 
-        locations.get(5).addExist("S",1);
-        locations.get(5).addExist("W",2);
+        tempExit=new HashMap<String,Integer>();
+        tempExit.put("N",1);
+        tempExit.put("W",2);
 
+        tempExit=new HashMap<String,Integer>();
+        tempExit.put("S",1);
+        tempExit.put("W",2);
 
         int loc=1;
         while (true){
@@ -62,7 +68,7 @@ public class Main {
                         //return;
                     }
                     for (var values : Cardinal.values()){
-                        if (values.toString().equals(s)){
+                        if (values.toString().equals(s) || values.toString().startsWith(String.valueOf(s.charAt(0)))){
                             loc=exits.get(String.valueOf(s.charAt(0)));
                             bandera=true;
                         }
