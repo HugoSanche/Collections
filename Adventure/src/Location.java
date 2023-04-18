@@ -7,7 +7,12 @@ public class Location {
     public Location(int idLocation, String description,Map<String,Integer> exits) {
         this.idLocation = idLocation;
         this.description = description;
-        this.exits= new HashMap<String,Integer>(exits);
+        if(exits!=null){
+            this.exits= new HashMap<String,Integer>(exits);
+        }else{
+            this.exits=new HashMap<>();
+        }
+
         this.exits.put("Q",0);
     }
 //    public void addExist(String description, int idLocation){

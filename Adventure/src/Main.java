@@ -45,7 +45,7 @@ public class Main {
         int loc=1;
         while (true){
             System.out.println(locations.get(loc).getDescription());
-            tempExit.remove("S");
+            //tempExit.remove("S");
             if (loc==0){
                 break;
             }
@@ -57,6 +57,12 @@ public class Main {
             System.out.println();
 
             String destination =scanner.nextLine().toUpperCase();
+            while (null == destination || destination.length() != 1) {
+                System.out.println("Invaid Input, Please enter only one character : ");
+                destination = scanner.nextLine().toUpperCase();
+            }
+            System.out.println(destination);
+
             String[] direcction=destination.split(" ");
             boolean bandera=false;
 
