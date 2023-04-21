@@ -5,6 +5,10 @@ import java.util.Set;
 public class SetExample {
     public static void main(String[] args) {
 
+        //El set lo podrias ocupar cuando trabajes con conjuntos de datos
+        //set its faster
+        //si no quieres duplicados usa set
+
         //Symetrys addAll .- contiene los mismos registros
         //Asymetric retainAll .- contiene los diferentes registros
         Set<Integer> squares=new HashSet<>();
@@ -36,10 +40,10 @@ public class SetExample {
 
         Set<String> nature=new HashSet<>();
         Set<String> religion=new HashSet<>();
-        String[] motivateWords={"all","days","woud", "be","the","best","for","you"};
-        nature.addAll(Arrays.asList(motivateWords));
+        String[] natureWords={"A","B","C", "D","E","F"};
+        nature.addAll(Arrays.asList(natureWords));
 
-        String[]  religionWords={"good", "is","the", "creator","of","the","universe"};
+        String[]  religionWords={"E", "F","X", "Y","Z"};
         religion.addAll(Arrays.asList(religionWords));
 
         System.out.println("Nature - religion ");
@@ -55,10 +59,14 @@ public class SetExample {
         System.out.println("-------------------------------------------------------");
         Set<String> unionTest=new HashSet<>(nature);
         unionTest.addAll(religion);
+        print(unionTest);
+
         Set<String> intersectionTest=new HashSet<>(nature);
         intersectionTest.retainAll(religion);
+        print(intersectionTest);
+        System.out.println("-------------------------------------------------------");
 
-        System.out.println("Symetric difference");
+        System.out.println("Symmetric difference");
         unionTest.removeAll(intersectionTest);
         print(unionTest);
 
