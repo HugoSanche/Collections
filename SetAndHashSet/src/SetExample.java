@@ -41,5 +41,47 @@ public class SetExample {
 
         String[]  religionWords={"good", "is","the", "creator","of","the","universe"};
         religion.addAll(Arrays.asList(religionWords));
+
+        System.out.println("Nature - religion ");
+        Set<String> diff1=new HashSet<>(nature);
+        diff1.removeAll(religion);
+        print(diff1);
+
+        System.out.println("Religion - nature");
+        Set<String> diff2=new HashSet<>(religion);
+        diff2.removeAll(nature);
+        print(diff2);
+
+        System.out.println("-------------------------------------------------------");
+        Set<String> unionTest=new HashSet<>(nature);
+        unionTest.addAll(religion);
+        Set<String> intersectionTest=new HashSet<>(nature);
+        intersectionTest.retainAll(religion);
+
+        System.out.println("Symetric difference");
+        unionTest.removeAll(intersectionTest);
+        print(unionTest);
+
+        if(nature.containsAll(religion)){
+            System.out.println("Religion is a subset of nature");
+        }
+        if(nature.containsAll(intersectionTest)){
+            System.out.println("interception is a subset of nature");
+        }
+        if(religion.containsAll(intersectionTest)){
+            System.out.println("interception is a subset of religion");
+        }
+
+    }
+    public static void print(Set<String> set){
+        System.out.print("\t");
+        for (String s:set){
+            System.out.print(s+" ");
+        }
+        System.out.println();
     }
 }
+
+
+
+

@@ -3,7 +3,7 @@ import java.util.Set;
 
 public class SetOtherExample {
     public static void main(String[] args) {
-        
+
         //remember its like set of sql
         Set<String> one = new HashSet<>();
         one.add("Hugo");
