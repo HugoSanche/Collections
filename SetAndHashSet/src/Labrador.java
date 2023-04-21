@@ -1,2 +1,7 @@
-package PACKAGE_NAME;public class Labrador {
+public class Labrador extends Dog{
+    public Labrador(String name) {
+        super(name);
+    }
+
+
 }
