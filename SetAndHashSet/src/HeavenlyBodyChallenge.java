@@ -9,20 +9,20 @@ enum BodyType{
     ASTEROID
 }
 public  class HeavenlyBodyChallenge {
-    private final String name;
+    private final Key key;
     private final double orbitalPeriod;
     private final Set<HeavenlyBodyChallenge> satellites;
-    private final BodyType bodyType;
+
 
     public HeavenlyBodyChallenge(String name, double orbitalPeriod,BodyType bodyType) {
-        this.name = name;
+        this.key=new Key(name, bodyType);
         this.orbitalPeriod = orbitalPeriod;
         this.satellites = new HashSet<>();
-        this.bodyType=bodyType;
+
     }
 
-    public String getName() {
-        return name;
+    public Key getKey() {
+        return key;
     }
 
     public double getOrbitalPeriod() {
@@ -33,9 +33,7 @@ public  class HeavenlyBodyChallenge {
         return new HashSet<>(this.satellites);
     }
 
-    public BodyType getBodyType() {
-        return bodyType;
-    }
+
 
     public  boolean addSatellite(HeavenlyBodyChallenge moon){
         return this.satellites.add(moon);
@@ -48,20 +46,54 @@ public  class HeavenlyBodyChallenge {
         }
         if (obj instanceof HeavenlyBodyChallenge myObj){
             //HeavenlyBodyChallenge myObj=((HeavenlyBodyChallenge) obj);//only above java 16
-            if (this.getName().equals(myObj.getName())){
-                return this.getBodyType().equals(myObj.getBodyType());
-            }
+
+                return this.key.equals(myObj.getKey());
+
         }
         return  false;
     }
 
     @Override
     public int hashCode() {
-        return this.name.hashCode()+57+this.bodyType.hashCode();
+        return this.key.hashCode();
     }
 
+    public static Key makeKey(String name, BodyType bodyType){
+        return  new Key(name,bodyType);
+    }
     @Override
     public String toString() {
-        return this.name+" "+this.orbitalPeriod+" "+this.bodyType;
+        return this.key.getName()+" "+this.orbitalPeriod+" "+this.key.getBodyType();
+    }
+    public static final class Key{
+        private String name;
+        private BodyType bodyType;
+
+        public Key(String name, BodyType bodyType) {
+            this.name = name;
+            this.bodyType = bodyType;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public BodyType getBodyType() {
+            return bodyType;
+        }
+
+        @Override
+        public int hashCode() {
+            return this.name.hashCode()+57+this.bodyType.hashCode();
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            Key key=((Key) obj);
+            if (this.name.equals(key.getName())){
+                return this.bodyType.equals(key.getBodyType());
+            }
+            return false;
+        }
     }
 }
