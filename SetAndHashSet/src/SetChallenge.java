@@ -67,19 +67,34 @@ public class SetChallenge {
         solarSystem.put(temp.getKey(), temp);
         planets.add(temp);
 
-        System.out.println("Planets");
+        HeavenlyBodyChallenge body =solarSystem.get(HeavenlyBodyChallenge.makeKey("Jupiter",BodyType.PLANET));
+        System.out.println("Moons of "+body.getKey());
+        for (HeavenlyBodyChallenge jupiterMoon: body.getSatellites()){
+            System.out.println("\t"+jupiterMoon.getKey());
+        }
+
+
+        System.out.println("Planets with satellites");
         for(HeavenlyBodyChallenge planet : planets){
             System.out.println("\t"+planet.getKey());
-
 
             for (HeavenlyBodyChallenge lunas :planet.getSatellites()){
                 System.out.println("\t \t Moons "+lunas.getKey());
             }
         }
+
+
         Set<HeavenlyBodyChallenge> moons=new HashSet<>();
         for (HeavenlyBodyChallenge lunas :planets){
             moons.addAll(lunas.getSatellites());
         }
+
+        System.out.println("List of Planets");
+        for(HeavenlyBodyChallenge planet : planets){
+            //System.out.println(planet.getKey()+": "+planet.getOrbitalPeriod());
+            System.out.println("\t"+planet);
+        }
+
         System.out.println("\nList of Moons:");
         for (HeavenlyBodyChallenge moon :moons ){
             System.out.println("\t"+moon.getKey());
@@ -88,10 +103,7 @@ public class SetChallenge {
         HeavenlyBodyChallenge pluto =new DwarfPlanet("Pluto",842);
         planets.add(pluto);
 
-        for(HeavenlyBodyChallenge planet : planets){
-            //System.out.println(planet.getKey()+": "+planet.getOrbitalPeriod());
-            System.out.println(planet);
-        }
+
         HeavenlyBodyChallenge earth1 =new Planet("Earth",365);
         HeavenlyBodyChallenge earth2 =new Planet("Earth",365);
 
@@ -99,8 +111,18 @@ public class SetChallenge {
         System.out.println(earth2.equals(earth1));
         System.out.println(pluto.equals(earth2));
         System.out.println(earth2.equals(pluto));
-    }
 
+        solarSystem.put(pluto.getKey(),pluto);
+        System.out.println(solarSystem.get(HeavenlyBodyChallenge.makeKey("Pluto",BodyType.PLANET)));
+        System.out.println(solarSystem.get(HeavenlyBodyChallenge.makeKey("Pluto",BodyType.DWARF_PLANET)));
+        System.out.println(solarSystem.get(HeavenlyBodyChallenge.makeKey("Mercury",BodyType.PLANET)));
+
+        System.out.println();
+        System.out.println("The solar System Contains");
+        for(HeavenlyBodyChallenge solarSystem: solarSystem.values()){//example how you print a MAP
+            System.out.println(solarSystem);
+        }
+    }
 
     }
 

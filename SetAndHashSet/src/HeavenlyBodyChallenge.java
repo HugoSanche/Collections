@@ -63,7 +63,7 @@ public  class HeavenlyBodyChallenge {
     }
     @Override
     public String toString() {
-        return this.key.getName()+" "+this.orbitalPeriod+" "+this.key.getBodyType();
+        return this.key.getName()+": "+this.key.getBodyType()+", "+this.orbitalPeriod+" ";
     }
     public static final class Key{
         private String name;
@@ -94,6 +94,11 @@ public  class HeavenlyBodyChallenge {
                 return this.bodyType.equals(key.getBodyType());
             }
             return false;
+        }
+
+        @Override
+        public String toString() {
+            return this.name+" "+this.bodyType;
         }
     }
 }
