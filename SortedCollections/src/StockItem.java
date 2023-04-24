@@ -41,7 +41,7 @@ public class StockItem implements  Comparable<StockItem>{
 
     @Override
     public String toString() {
-        return this.name+" "+this.price+" "+this.quantityStock;
+        return this.name+": price: "+this.price;
     }
 
     @Override
@@ -64,6 +64,7 @@ public class StockItem implements  Comparable<StockItem>{
 
     @Override
     public int compareTo(StockItem o) {
+        System.out.println("Entering "+this.getClass()+" compareTo");
         if (this == o){
             return 0;
         }

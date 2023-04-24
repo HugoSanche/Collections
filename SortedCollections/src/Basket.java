@@ -1,6 +1,6 @@
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Basket {
     private final String name;
@@ -8,7 +8,7 @@ public class Basket {
 
     public Basket(String name) {
         this.name = name;
-        this.list = new HashMap<>();
+        this.list = new TreeMap<>();
     }
     public int addToBasket(StockItem item, int quantity){
         if((item!=null) && (quantity>0)){
@@ -24,7 +24,7 @@ public class Basket {
 
     @Override
     public String toString() {
-        String s="\nShopping basket "+name+" contains "+list.size()+" items\n";
+        String s="\nShopping basket "+name+" contains "+list.size()+(list.size()==1 ? " item" : " items\n");
         double totalCost=0.0;
         for (Map.Entry<StockItem,Integer> item:list.entrySet() ){
             s=s+item.getKey()+". "+item.getValue()+" purchase\n";
@@ -32,27 +32,5 @@ public class Basket {
         }
         return s+"Total cost "+totalCost;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
