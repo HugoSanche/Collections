@@ -10,25 +10,36 @@ public StockList(){
 }
 
     public  int addStock(StockItem item){
+
         if (item!=null){
             StockItem inStock=list.getOrDefault(item.getName(),item);//si encuentra "item.getName()" te regresa su valor
                                                                     // si no lo encuentra te regresa "item"
             if (inStock!=item){
+//                System.out.println("///");
                 item.adjustStock(inStock.quantityInStock());
             }
+            //System.out.println("-*-*-*-*-*-*-*-*-*-*");
             list.put(item.getName(),item);
             return item.quantityInStock();
         }
         return 0;
     }
-    public int sellStock(String keyName, int quantity){
+    public int sellStock(String keyName, int deserved){
         StockItem stock=list.getOrDefault(keyName,null);
-        if (stock!=null && stock.quantityInStock()>quantity && quantity>0){
-            stock.adjustStock(-quantity);
-            return quantity;
+  //      System.out.println(stock.getName()+" "+stock.getPrice());
+    //    System.out.println(stock.quantityInDeserve());
+        System.out.println("\n&&&&&&&&&&&&&&&&&&&&&&&&");
+        System.out.println(stock.getName());
+        System.out.println(stock.quantityInStock());
+        System.out.println(deserved);
+        System.out.println(stock.quantityInDeserve());
+        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&");
+        if (stock!=null && stock.quantityInStock()>(deserved+stock.quantityInDeserve()) && deserved>0){
+           stock.adjustStock(deserved);
+            return deserved+stock.quantityInDeserve();
         }
-        if (quantity>stock.quantityInStock()){
-            System.out.println("Not enough items to sell");
+        if (deserved+stock.quantityInDeserve()>stock.quantityInStock()){
+            System.out.println("Not enough "+stock.getName()+" to sell."+" You try to buy "+deserved+" but only have "+stock.quantityInStock());
         }
         return 0;
     }
@@ -52,9 +63,14 @@ public StockList(){
         String s="\nStock List\n";
         double totalCost=0.0;
         for (Map.Entry<String,StockItem> item :list.entrySet()){
+           // System.out.println("*****************************");
+           // System.out.println(item.getValue());
+
             StockItem stockItem=item.getValue();
             double itemValue=stockItem.getPrice()*stockItem.quantityInStock();
-            s=s+stockItem+". There are "+stockItem.quantityInStock()+ " in stock. Value of items: ";
+            int d=item.getValue().quantityInDeserve();
+
+            s=s+"Deserved items "+d+" "+stockItem+". There are "+stockItem.quantityInStock()+ " in stock. Value of items: ";
             s=s+String.format("%.2f",itemValue)+"\n";
             //s=s+itemValue+"\n";
             totalCost+=itemValue;

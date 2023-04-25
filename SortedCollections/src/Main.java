@@ -1,5 +1,3 @@
-import java.util.Map;
-
 public class Main {
     private static StockList stockList=new StockList();
     public static void main(String[] args) {
@@ -41,12 +39,13 @@ public class Main {
         System.out.println("*********************");
         System.out.println(stockList);
 
-        for (String s : stockList.items().keySet()) {
-            System.out.println(s);
-        }
+//        for (String s : stockList.items().keySet()) {
+//            System.out.println(s);
+//        }
 
         System.out.println("----------------------------------------------------");
         Basket hugoBasket = new Basket("Hugo");
+        Basket veronicaBasket = new Basket("Hugo");
         sellItem(hugoBasket, "Eggs", 30);
         // System.out.println(hugoBasket);
 
@@ -57,36 +56,49 @@ public class Main {
         sellItem(hugoBasket, "Laptop", 1);
         // System.out.println(hugoBasket);
 
-        sellItem(hugoBasket, "Soda", 20);
+        sellItem(hugoBasket, "Soda", 40);
+        sellItem(veronicaBasket,"Soda",9);
+
         sellItem(hugoBasket, "Milk", 10);
+
+
         sellItem(hugoBasket, "Cheese", 7);
-        System.out.println(hugoBasket);
+
+
+
+
+      //  stockList.items().get("Wine").adjustStock(20);//you modify the stock Item class not the Map
+      //  stockList.get("Wine").adjustStock(-10);//you modify the stock Item class not the Map
 
         System.out.println(hugoBasket);
         System.out.println(stockList);
 
-        temp = new StockItem("pen", 1.12);
+      //  temp = new StockItem("pen", 1.12);
         //stockList.addStock(temp);
         //  stockList.items().put(temp.getName(), temp); //you cannot modify Collections.unmodifiableMap.- you only read
-        stockList.items().get("Wine").adjustStock(20);//you modify the stock Item class not the Map
-        stockList.get("Wine").adjustStock(-10);//you modify the stock Item class not the Map
-        System.out.println(stockList);
 
-        for (Map.Entry<String, Double> price : stockList.priceList().entrySet()) {
-            System.out.println(price.getKey() + " cost " + price.getValue());
-        }
+       // System.out.println(stockList);
+
+//        for (Map.Entry<String, Double> price : stockList.priceList().entrySet()) {
+//            System.out.println(price.getKey() + " cost " + price.getValue());
+//        }
 
     }
-    public static int sellItem(Basket basket,String item, int quantity){
+    public static int sellItem(Basket basket,String item, int deserved){
+
         StockItem stockItem=stockList.get(item);
         if(stockItem==null){
             System.out.println("We don't sell "+item);
             return 0;
         }
-        if(stockList.sellStock(item,quantity)!=0){
-            basket.addToBasket(stockItem,quantity);
-            return quantity;
+        //System.out.println("PASE 1");
+        if(stockList.sellStock(item,deserved)!=0){
+
+            basket.addToBasket(stockItem,deserved);
+
+            return deserved;
         }
+
         return 0;
     }
 }
