@@ -60,11 +60,8 @@ public class Main {
         sellItem(veronicaBasket,"Soda",9);
 
         sellItem(hugoBasket, "Milk", 10);
-
-
+        
         sellItem(hugoBasket, "Cheese", 7);
-
-
 
 
       //  stockList.items().get("Wine").adjustStock(20);//you modify the stock Item class not the Map
@@ -101,4 +98,12 @@ public class Main {
 
         return 0;
     }
+    public static void unservedItem(Basket basket, String item, int unserved){
+        StockItem stockItem=stockList.get(item);
+        if(stockItem==null){
+            System.out.println("We don't have that item "+item);
+        }
+
+    }
+
 }
