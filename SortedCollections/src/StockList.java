@@ -28,14 +28,17 @@ public StockList(){
         StockItem stock=list.getOrDefault(keyName,null);
   //      System.out.println(stock.getName()+" "+stock.getPrice());
     //    System.out.println(stock.quantityInDeserve());
-        System.out.println("\n&&&&&&&&&&&&&&&&&&&&&&&&");
-        System.out.println(stock.getName());
-        System.out.println(stock.quantityInStock());
-        System.out.println(deserved);
-        System.out.println(stock.quantityInDeserve());
-        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&");
+       // System.out.println("\n&&&&&&&&&&&&&&&&&&&&&&&&");
+
+       // System.out.println(stock.getName());
+       // System.out.println(stock.quantityInStock());
+       // System.out.println(deserved);
+
         if (stock!=null && stock.quantityInStock()>(deserved+stock.quantityInDeserve()) && deserved>0){
            stock.adjustStock(deserved);
+
+         //   System.out.println(stock.quantityInDeserve());
+         //   System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&");
             return deserved+stock.quantityInDeserve();
         }
         if (deserved+stock.quantityInDeserve()>stock.quantityInStock()){
@@ -43,6 +46,29 @@ public StockList(){
         }
         return 0;
     }
+
+    public int undeserverStock(String keyName, int undeserved){
+        StockItem stock=list.getOrDefault(keyName,null);
+        //      System.out.println(stock.getName()+" "+stock.getPrice());
+      //System.out.println("Undeserved");
+        //System.out.println("\n&&&&&&&&&&&&&&&&&&&&&&&&");
+        //System.out.println(stock.getName());
+        //System.out.println(stock.quantityInDeserve());
+        //System.out.println(undeserved);
+
+        if (stock!=null && stock.quantityInDeserve()>=(undeserved) && undeserved>0){
+            stock.adjustStock(-undeserved);
+          //  System.out.println(stock.quantityInDeserve());
+           // System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&");
+            System.out.println("PASE A");
+            return stock.quantityInDeserve();
+        }
+        if (undeserved>stock.quantityInDeserve()){
+            System.out.println(stock.getName()+" You try to undeserved "+undeserved+" but Its higher than "+stock.quantityInDeserve());
+        }
+        return 0;
+    }
+
     public StockItem get(String key){
         return list.get(key);
     }

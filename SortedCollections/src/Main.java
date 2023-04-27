@@ -13,7 +13,7 @@ public class Main {
         temp = new StockItem("Door", 50.0, 5);
         stockList.addStock(temp);
 
-        temp = new StockItem("Milk", 1.4, 70);
+        temp = new StockItem("Milk", 1.4, 20);
         stockList.addStock(temp);
 
         temp = new StockItem("Cheese", 6.0, 15);
@@ -45,7 +45,7 @@ public class Main {
 
         System.out.println("----------------------------------------------------");
         Basket hugoBasket = new Basket("Hugo");
-        Basket veronicaBasket = new Basket("Hugo");
+        Basket veronicaBasket = new Basket("Veronica");
         sellItem(hugoBasket, "Eggs", 30);
         // System.out.println(hugoBasket);
 
@@ -59,16 +59,22 @@ public class Main {
         sellItem(hugoBasket, "Soda", 40);
         sellItem(veronicaBasket,"Soda",9);
 
-        sellItem(hugoBasket, "Milk", 10);
+
         
         sellItem(hugoBasket, "Cheese", 7);
 
-
       //  stockList.items().get("Wine").adjustStock(20);//you modify the stock Item class not the Map
       //  stockList.get("Wine").adjustStock(-10);//you modify the stock Item class not the Map
-
+        sellItem(hugoBasket, "Milk", 10);
         System.out.println(hugoBasket);
-        System.out.println(stockList);
+
+        sellItem(veronicaBasket, "Milk", 5);
+        System.out.println(veronicaBasket);
+
+        System.out.println("/*/*/*/*/*");
+        //unservedItem(hugoBasket,"Milk",10);
+        System.out.println(hugoBasket);
+
 
       //  temp = new StockItem("pen", 1.12);
         //stockList.addStock(temp);
@@ -88,9 +94,9 @@ public class Main {
             System.out.println("We don't sell "+item);
             return 0;
         }
-        //System.out.println("PASE 1");
-        if(stockList.sellStock(item,deserved)!=0){
 
+        if(stockList.sellStock(item,deserved)!=0){
+            //System.out.println("PASE 1");
             basket.addToBasket(stockItem,deserved);
 
             return deserved;
@@ -98,12 +104,23 @@ public class Main {
 
         return 0;
     }
-    public static void unservedItem(Basket basket, String item, int unserved){
+    public static int unservedItem(Basket basket, String item, int undeserved){
+        if (undeserved >basket.getDeserved()){
+            System.out.println("Invalid undeserved item");
+            return 0;
+        }
         StockItem stockItem=stockList.get(item);
         if(stockItem==null){
             System.out.println("We don't have that item "+item);
+            return 0;
         }
 
+        if(stockList.undeserverStock(item,undeserved)!=0){
+            System.out.println("PASE 1");
+            basket.restToBasket(stockItem,undeserved);
+            return undeserved;
+        }
+        return 0;
     }
 
 }
