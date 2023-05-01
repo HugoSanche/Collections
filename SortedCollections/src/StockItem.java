@@ -4,7 +4,6 @@ public class StockItem implements  Comparable<StockItem>{
     private int quantityStock;
     private int quantityDeserved;
 
-
     public StockItem(String name, double price) {
         this.name = name;
         this.price = price;
@@ -48,9 +47,7 @@ public class StockItem implements  Comparable<StockItem>{
         }
     }
     public void adjustQuantityStock(int deserved) {
-
-        int totalStock=this.quantityStock+deserved;
-        System.out.println("Total Stock "+totalStock);
+        int totalStock=this.quantityStock-deserved;
         if (totalStock>=0){
             this.quantityStock = totalStock;
         }

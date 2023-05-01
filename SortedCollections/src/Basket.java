@@ -5,14 +5,9 @@ public class Basket {
     private final String name;
     private final Map<StockItem,Integer> list;
     private  int deserved;
-    BasquetDeserved basquetDeserved;
     public Basket(String name) {
         this.name = name;
         this.list = new TreeMap<>();
-    }
-
-    public int getDeserved() {
-        return basquetDeserved.getDeserved();
     }
 
     public int addToBasket(StockItem item, int quantity){
@@ -34,14 +29,7 @@ public class Basket {
 
         if((item!=null) && (quantity>0)){
             item.adjustQuantityDeserved(-quantity);
-           //deserved=deserved-quantity;
-
             int inBasket=list.getOrDefault(item,0);//busca en list la llave item, si no la encuentra regresa 0
-            System.out.println("Deserved "+deserved);
-            System.out.println("inBasket "+inBasket);
-            System.out.println("quantity "+quantity);
-            System.out.println("item "+item.getName());
-
             if (inBasket-quantity==0){
                 list.remove(item);
                 System.out.println("A");
@@ -53,7 +41,6 @@ public class Basket {
         }
         return 0;
     }
-
 
     public Map<StockItem,Integer> items(){
         return Collections.unmodifiableMap(list);
@@ -68,9 +55,7 @@ public class Basket {
         double totalCost=0.0;
        // System.out.println(list);
         for (Map.Entry<StockItem,Integer> item:list.entrySet() ){
-          // System.out.println(item.getKey().quantityInDeserve());
-            //+"Deserved "+item.getKey().quantityInDeserve()+" "
-            s = s + "Total Deserved: "+item.getKey().quantityInDeserve()+" My Deserved: "+deserved+" "+item.getKey() + ". " + item.getKey().quantityInStock() + " purchased\n";
+            s = s + "Total Deserved: "+item.getKey().quantityInDeserve()+" " +item.getKey() + ". " + item.getKey().quantityInStock() + " purchased\n";
             totalCost += item.getKey().getPrice() * item.getValue();
         }
         return s+"Total cost "+totalCost;

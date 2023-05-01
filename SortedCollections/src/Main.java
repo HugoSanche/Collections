@@ -38,14 +38,8 @@ public class Main {
         temp = new StockItem("Juice", 7.0, 7);
         stockList.addStock(temp);
 
-        System.out.println("*********************");
         System.out.println(stockList);
 
-//        for (String s : stockList.items().keySet()) {
-//            System.out.println(s);
-//        }
-
-        System.out.println("----------------------------------------------------");
         Basket hugoBasket = new Basket("Hugo");
         Basket veronicaBasket = new Basket("Veronica");
 
@@ -57,19 +51,15 @@ public class Main {
         sellItem(hugoBasket, "Milk", 10);
         System.out.println(hugoBasket);
 
-        sellItem(veronicaBasket,"Soda",9);
+        sellItem(veronicaBasket, "Soda", 9);
         sellItem(veronicaBasket, "Milk", 5);
         System.out.println(veronicaBasket);
 
-
-        System.out.println("/*/*/*/*/*");
-        unservedItem(hugoBasket,"Milk",10);
         System.out.println(hugoBasket);
-
         System.out.println(stockList);
 
         checkOut(hugoBasket);
-
+        checkOut(veronicaBasket);
     }
     public static int sellItem(Basket basket,String item, int deserved){
 
@@ -80,7 +70,6 @@ public class Main {
         }
 
         if(stockList.sellStock(item,deserved)!=0){
-            //System.out.println("PASE 1");
             basket.addToBasket(stockItem,deserved);
             return deserved;
         }
@@ -94,12 +83,7 @@ public class Main {
             System.out.println("We don't have that item "+item);
             return 0;
         }
-
-       // if(stockList.undeserverStock(item,undeserved)!=0){
-
             basket.restToBasket(stockItem,undeserved);
-           // return undeserved;
-        //}
         return 0;
     }
     public static void checkOut(Basket basket) {
@@ -107,8 +91,6 @@ public class Main {
         for (Map.Entry<StockItem,Integer> item:basket.items().entrySet() ){
         {
             StockItem stockItem=stockList.get(item.getKey().getName());
-            System.out.println("Get Key: "+item.getKey());
-            System.out.println("Get value "+item.getValue());
             stockList.checkOutItem(item.getKey().getName(),item.getValue());
         }
         }

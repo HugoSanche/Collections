@@ -47,11 +47,11 @@ public StockList(){
     }
     public void checkOutItem(String keyName, int deserved){
         StockItem stock=list.getOrDefault(keyName,null);
+        if ( deserved>stock.quantityInStock()){
+            System.out.println("Not enough "+stock.getName()+" to sell."+" You try to buy "+deserved+" but only have "+stock.quantityInStock());
+        }
         if (stock!=null && stock.quantityInStock()> deserved){
             stock.adjustQuantityStock(deserved);
-        }
-        if (deserved+stock.quantityInDeserve()>stock.quantityInStock()){
-            System.out.println("Not enough "+stock.getName()+" to sell."+" You try to buy "+deserved+" but only have "+stock.quantityInStock());
         }
     }
 
@@ -79,7 +79,7 @@ public StockList(){
             double itemValue=stockItem.getPrice()*stockItem.quantityInStock();
             int d=item.getValue().quantityInDeserve();
 
-            s=s+"Deserved items "+d+" "+stockItem+". There are "+stockItem.quantityInStock()+ " in stock. Value of items: ";
+            s=s+"Deserved items "+d+" "+stockItem+". There are "+(stockItem.quantityInStock()-stockItem.quantityInDeserve())+ " in stock. Value of items: ";
             s=s+String.format("%.2f",itemValue)+"\n";
             //s=s+itemValue+"\n";
             totalCost+=itemValue;
