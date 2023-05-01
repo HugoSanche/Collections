@@ -15,10 +15,8 @@ public StockList(){
             StockItem inStock=list.getOrDefault(item.getName(),item);//si encuentra "item.getName()" te regresa su valor
                                                                     // si no lo encuentra te regresa "item"
             if (inStock!=item){
-//                System.out.println("///");
-                item.adjustStock(inStock.quantityInStock());
+                item.adjustQuantityDeserved(inStock.quantityInStock());
             }
-            //System.out.println("-*-*-*-*-*-*-*-*-*-*");
             list.put(item.getName(),item);
             return item.quantityInStock();
         }
@@ -26,19 +24,8 @@ public StockList(){
     }
     public int sellStock(String keyName, int deserved){
         StockItem stock=list.getOrDefault(keyName,null);
-  //      System.out.println(stock.getName()+" "+stock.getPrice());
-    //    System.out.println(stock.quantityInDeserve());
-       // System.out.println("\n&&&&&&&&&&&&&&&&&&&&&&&&");
-
-       // System.out.println(stock.getName());
-       // System.out.println(stock.quantityInStock());
-       // System.out.println(deserved);
-
         if (stock!=null && stock.quantityInStock()>(deserved+stock.quantityInDeserve()) && deserved>0){
-           stock.adjustStock(deserved);
-
-         //   System.out.println(stock.quantityInDeserve());
-         //   System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&");
+           stock.adjustQuantityDeserved(deserved);
             return deserved+stock.quantityInDeserve();
         }
         if (deserved+stock.quantityInDeserve()>stock.quantityInStock()){
@@ -49,24 +36,23 @@ public StockList(){
 
     public int undeserverStock(String keyName, int undeserved){
         StockItem stock=list.getOrDefault(keyName,null);
-        //      System.out.println(stock.getName()+" "+stock.getPrice());
-      //System.out.println("Undeserved");
-        //System.out.println("\n&&&&&&&&&&&&&&&&&&&&&&&&");
-        //System.out.println(stock.getName());
-        //System.out.println(stock.quantityInDeserve());
-        //System.out.println(undeserved);
-
         if (stock!=null && stock.quantityInDeserve()>=(undeserved) && undeserved>0){
-            stock.adjustStock(-undeserved);
-          //  System.out.println(stock.quantityInDeserve());
-           // System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&");
-            System.out.println("PASE A");
+            stock.adjustQuantityDeserved(-undeserved);
             return stock.quantityInDeserve();
         }
         if (undeserved>stock.quantityInDeserve()){
             System.out.println(stock.getName()+" You try to undeserved "+undeserved+" but Its higher than "+stock.quantityInDeserve());
         }
         return 0;
+    }
+    public void checkOutItem(String keyName, int deserved){
+        StockItem stock=list.getOrDefault(keyName,null);
+        if (stock!=null && stock.quantityInStock()> deserved){
+            stock.adjustQuantityStock(deserved);
+        }
+        if (deserved+stock.quantityInDeserve()>stock.quantityInStock()){
+            System.out.println("Not enough "+stock.getName()+" to sell."+" You try to buy "+deserved+" but only have "+stock.quantityInStock());
+        }
     }
 
     public StockItem get(String key){
@@ -89,9 +75,6 @@ public StockList(){
         String s="\nStock List\n";
         double totalCost=0.0;
         for (Map.Entry<String,StockItem> item :list.entrySet()){
-           // System.out.println("*****************************");
-           // System.out.println(item.getValue());
-
             StockItem stockItem=item.getValue();
             double itemValue=stockItem.getPrice()*stockItem.quantityInStock();
             int d=item.getValue().quantityInDeserve();

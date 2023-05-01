@@ -1,23 +1,21 @@
 import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
-
 public class Basket {
     private final String name;
     private final Map<StockItem,Integer> list;
-
     private  int deserved;
+    BasquetDeserved basquetDeserved;
     public Basket(String name) {
         this.name = name;
         this.list = new TreeMap<>();
     }
 
     public int getDeserved() {
-        return deserved;
+        return basquetDeserved.getDeserved();
     }
 
     public int addToBasket(StockItem item, int quantity){
-
         if((item!=null) && (quantity>0)){
             deserved=quantity;
             int inBasket=list.getOrDefault(item,0);//busca en list la llave item, si no la encuentra regresa 0
@@ -35,8 +33,8 @@ public class Basket {
         }
 
         if((item!=null) && (quantity>0)){
-
-           deserved=deserved-quantity;
+            item.adjustQuantityDeserved(-quantity);
+           //deserved=deserved-quantity;
 
             int inBasket=list.getOrDefault(item,0);//busca en list la llave item, si no la encuentra regresa 0
             System.out.println("Deserved "+deserved);
@@ -51,9 +49,6 @@ public class Basket {
                 list.put(item,inBasket-quantity);
                 System.out.println("B");
             }
-
-            //System.out.println("My Basquet "+list.get(item));
-            //System.out.println("DOS");
             return inBasket;
         }
         return 0;
@@ -62,6 +57,9 @@ public class Basket {
 
     public Map<StockItem,Integer> items(){
         return Collections.unmodifiableMap(list);
+    }
+    public void restarItem(StockItem stockItem, int quantity){
+        stockItem.adjustQuantityStock(quantity);
     }
 
     @Override
@@ -74,9 +72,7 @@ public class Basket {
             //+"Deserved "+item.getKey().quantityInDeserve()+" "
             s = s + "Total Deserved: "+item.getKey().quantityInDeserve()+" My Deserved: "+deserved+" "+item.getKey() + ". " + item.getKey().quantityInStock() + " purchased\n";
             totalCost += item.getKey().getPrice() * item.getValue();
-
         }
         return s+"Total cost "+totalCost;
     }
-
 }

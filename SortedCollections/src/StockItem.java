@@ -23,8 +23,6 @@ public class StockItem implements  Comparable<StockItem>{
         return name;
     }
 
-
-
     public double getPrice() {
         return price;
     }
@@ -41,15 +39,20 @@ public class StockItem implements  Comparable<StockItem>{
             this.price = price;
         }
     }
-    public void adjustStock(int deserved) {
+    public void adjustQuantityDeserved(int deserved) {
 
         int totalStock=this.quantityDeserved+deserved;
         System.out.println("Total Stock "+totalStock);
         if (totalStock>=0){
             this.quantityDeserved = totalStock;
-           // System.out.println("quantityStock "+quantityStock);
-           // quantityStock=quantityStock-totalStock;
-           // System.out.println("quantityStock "+quantityStock);
+        }
+    }
+    public void adjustQuantityStock(int deserved) {
+
+        int totalStock=this.quantityStock+deserved;
+        System.out.println("Total Stock "+totalStock);
+        if (totalStock>=0){
+            this.quantityStock = totalStock;
         }
     }
 
