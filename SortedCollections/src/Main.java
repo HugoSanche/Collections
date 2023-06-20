@@ -93,6 +93,7 @@ public class Main {
             StockItem stockItem=stockList.get(item.getKey().getName());
             stockList.checkOutItem(item.getKey().getName(),item.getValue());
         }
+        basket.cl
         }
     }
 }

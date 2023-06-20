@@ -32,10 +32,9 @@ public class Basket {
             int inBasket=list.getOrDefault(item,0);//busca en list la llave item, si no la encuentra regresa 0
             if (inBasket-quantity==0){
                 list.remove(item);
-                System.out.println("A");
+
             }else{
                 list.put(item,inBasket-quantity);
-                System.out.println("B");
             }
             return inBasket;
         }
