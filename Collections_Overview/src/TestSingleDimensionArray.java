@@ -7,6 +7,11 @@ public class TestSingleDimensionArray {
         array.insert(2,20);
         array.insert(1,30);
         array.insert(12,120);
+        System.out.println("Array traversal");
+        array.traverseArray();
+        array.searchInArray(40);
+        array.deleteValue(3);
+
     }
 
 }
