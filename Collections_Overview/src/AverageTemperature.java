@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class AverageTemperature {
-    private int days;
+    final int days;
 
     Scanner scanner=new Scanner(System.in);
     public int[] temperature;
@@ -11,7 +11,6 @@ public class AverageTemperature {
     }
     //Calculate average
     public float calculeTemperature(){
-        System.out.println("22");
         int sumTemperature=0;
         for(int i=0; i<days; i++){
             System.out.println("Day "+(i+1)+"'s height temperature: ");
