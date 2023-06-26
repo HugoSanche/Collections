@@ -11,7 +11,7 @@ public class Main {
 
         //exercise toptwoScores
 
-        int[] myArray = {84,85,86,87,85,90,85,83,23,45,84,1,2,0};
+        int[] myArray = {84,85,86,87,85,90,85,83,23,45,88,1,2,89,91};
         int[] top=FindTopTwoScores.findTopTwoScores(myArray);
         System.out.println(Arrays.toString(top));
     }

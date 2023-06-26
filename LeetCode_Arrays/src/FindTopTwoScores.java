@@ -7,9 +7,12 @@ public class FindTopTwoScores {
                 if (firstSecond[0]<array[i+1]){
                     firstSecond[1]=firstSecond[0];
                     firstSecond[0]=array[i+1];
+                }else{
+                    if (firstSecond[0]>array[i+1] && firstSecond[1]<array[i+1]){
+                        firstSecond[1]=array[i+1];
+                    }
                 }
             }
             return firstSecond;
         }
-
 }
