@@ -25,5 +25,31 @@ public class Main {
         int[] resRemoveDuplicates=RemoveDuplicates.removeDuplicates(myArray3);
         System.out.println(Arrays.toString(resRemoveDuplicates));
 
+        //Given a sorted array nums, remove the duplicates in-place such that each element appears only once and returns the new length.
+        // Do not allocate extra space for another array; you must do this by modifying the input array in-place with O(1) extra memory.
+        System.out.println("*********");
+        int[] nums = {1, 1, 2,3,4,4,5,6,7,8,8};
+        int resremove=RemoveDuplicatesSortedArray.removeDuplicates(nums);
+        System.out.println(resremove);
+
+        System.out.println("*********");
+        //You are given an array prices where prices[i] is the price of a given stock on the ith day.
+        // You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future
+        // to sell that stock. Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+        int[] prices = {7,2 , 5, 3, 6, 4,2,9};
+        int resPrices=MaxProfit.maxProfit3(prices);
+        System.out.println(resPrices);
+
+        System.out.println("*********");
+        //Max Product of Two Integers
+        //How to find maximum product of two integers in the array where all elements are positive.
+        //Example
+        //int[] intArray = {10,20,30,40,50};
+        //maxProduct(intArray) // (40,50)
+        int[] intArray = {10,20,30,40,50};
+        String pairs=MaxProduct.maxProduct(intArray);
+        System.out.println(pairs);
+
     }
 }
