@@ -51,5 +51,39 @@ public class Main {
         String pairs=MaxProduct.maxProduct(intArray);
         System.out.println(pairs);
 
+        //IsUnique / Contains Duplicate - LeetCode 217
+        //Write a program to check if an array is unique or not.
+        //
+        //Example
+        //
+        //int[] intArray = {1,2,3,4,5,6};
+        //isUnique(intArray) // true
+        System.out.println("*********");
+        int[] isUnique = {1,80,10,30,5,40,50,80};
+        boolean bandera=IsUnique.isUnique(isUnique);
+        System.out.println(bandera);
+
+        //Permutation
+        //Your are given two integer arrays. Write a program to check if they are permutation of each other.
+        //
+        //Example
+        //
+        //int[] array1 = {1,2,3,4,5};
+        //int[] array2 = {5,1,2,3,4};
+        //permutation(array1, array2)
+        //Output
+        //
+        //true
+        System.out.println("******************************");
+        int[] array1 = {1,2,3,4,5,7};
+        int[] array2 = {5,1,2,3,4,7};
+boolean permutation=Permutation.permutation(array1,array2);
+        System.out.println(permutation);
+
+        //Rotate Matrix
+        //Given an image represented by an NxN matrix write a method to rotate the image by 90 degrees.
+        int[][] matrix={{1,2,3},{4,5,6},{7,8,9}};
+        System.out.println(Arrays.deepToString(matrix));
+        RotateMatriz.rotateMatrix(matrix);
     }
 }
