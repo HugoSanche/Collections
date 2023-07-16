@@ -11,6 +11,7 @@ public class SinglyLinkedList {
         node.value=valueNode;
         head=node;
         tail=node;
+        size=1;
         return head;
     }
 
@@ -40,5 +41,23 @@ public class SinglyLinkedList {
             node.next=nextNode;
         }
         size++;
+    }
+
+    // Transversal single linked list
+    public void traverseSingleLinkedList(){
+        if (head==null){
+            System.out.println("SSL does not exist");
+        }else{
+            Node printNode=head;
+            for (int i=0; i<size; i++){
+                System.out.print(printNode.value);
+                if (i!=size-1){
+                    System.out.print("- >");
+                }
+                printNode=printNode.next;
+            }
+        }
+        System.out.println("\n");
+
     }
 }
