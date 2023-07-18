@@ -43,6 +43,9 @@ public class SinglyLinkedList {
         size++;
     }
 
+//Time complexity O(N)
+//Time complexity O(1)
+
     // Transversal single linked list
     public void traverseSingleLinkedList(){
         if (head==null){
@@ -58,6 +61,25 @@ public class SinglyLinkedList {
             }
         }
         System.out.println("\n");
+    }
 
+    //Time complexity O(N)
+    //Time complexity O(1)
+    public boolean searchSingleLinkedList(int value){
+        if (head==null){
+            System.out.println("SSL does not exist");
+        }else{
+            Node searchNode=head;
+            for (int i=0; i<size; i++){
+                //System.out.print(searchNode.value);
+                if (value==searchNode.value){
+                    System.out.println("Value found at the location: "+i);
+                    return true;
+                }
+                searchNode=searchNode.next;
+            }
+        }
+        System.out.println("\n Node value not found");
+        return false;
     }
 }
