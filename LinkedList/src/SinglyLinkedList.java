@@ -82,4 +82,31 @@ public class SinglyLinkedList {
         System.out.println("\n Node value not found");
         return false;
     }
+    public void deletionOfNode(int location) {
+        if (head == null) {
+            System.out.println("The SLL does not exist");
+            return;
+        } else if (location == 0) {
+            head = head.next;
+            size--;
+            if (size == 0) {
+                tail = null;
+            }
+        } else if (location >= size) {
+            Node tempNode = head;
+            for (int i = 0; i < size - 2; i++) {
+                tempNode = tempNode.next;
+            }
+            tempNode.next = null;
+            tail = tempNode;
+            size--;
+        } else {
+            Node tempNode = head;
+            for (int i = 0; i < location - 1; i++) {
+                tempNode = tempNode.next;
+            }
+            tempNode.next = tempNode.next.next;
+            size--;
+        }
+    }
 }
