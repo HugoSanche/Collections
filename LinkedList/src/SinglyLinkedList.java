@@ -44,7 +44,7 @@ public class SinglyLinkedList {
     }
 
 //Time complexity O(N)
-//Time complexity O(1)
+//Space complexity O(1)
 
     // Transversal single linked list
     public void traverseSingleLinkedList(){
@@ -64,7 +64,7 @@ public class SinglyLinkedList {
     }
 
     //Time complexity O(N)
-    //Time complexity O(1)
+    //Space complexity O(1)
     public boolean searchSingleLinkedList(int value){
         if (head==null){
             System.out.println("SSL does not exist");
@@ -82,6 +82,8 @@ public class SinglyLinkedList {
         System.out.println("\n Node value not found");
         return false;
     }
+    //Time complexity O(N)
+    //space complexity O(1)
     public void deletionOfNode(int location) {
         if (head == null) {
             System.out.println("The SLL does not exist");
@@ -108,5 +110,13 @@ public class SinglyLinkedList {
             tempNode.next = tempNode.next.next;
             size--;
         }
+    }
+
+    //Time complexity O(1)
+    //Space complexity O(1)
+    public void deleteSLL(){
+        head=null;
+        tail=null;
+        System.out.println("The sLL deleted successfully");
     }
 }
