@@ -12,5 +12,8 @@ public class Main {
         //System.out.println(sLL.head.next.value);
         System.out.println("Search Value Node");
         boolean search=sLL.searchSingleLinkedList(7);
+
+        sLL.deleteSLL();
+        sLL.traverseSingleLinkedList();
     }
 }
