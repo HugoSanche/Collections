@@ -13,6 +13,10 @@ public class Main {
         csll.insertCircularSingleLinkedList(7,8);
        // csll.insertCircularSingleLinkedList(5,5);
         csll.traversalCircularSingleLinkedList();
+        csll.deleteNode(8);
+        csll.traversalCircularSingleLinkedList();
+
+
     }
 
 }

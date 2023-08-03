@@ -1,6 +1,3 @@
-import java.util.HashSet;
-import java.util.LinkedList;
-
 public class CircularSingleLinkedList {
     Node head;
     Node tail;
@@ -81,22 +78,48 @@ public class CircularSingleLinkedList {
         System.out.println("Not exits value in Circular single List");
         return false;
     }
-
-    void deleteDups(LinkedList ll) {
-        HashSet<Integer> hs = new HashSet();
-        Node current = ll.head;
-        Node prev = null;
-        while (current != null) {
-            int curval = current.value;
-            if (hs.contains(curval)) {
-                prev.next = current.next;
-                ll.size--;
-            } else {
-                hs.add(curval);
-                prev = current;
-            }
-            current = current.next;
+    //Time Complexity O(N)
+    //Space Complexity O(1)
+ public void deleteNode(int location){
+        if (head== null){
+            System.out.println("The cll does existes");
+            return;
         }
+        else if (location==0){
+            head=head.next;
+            tail.next=head;
+            size--;
+            if (size==0){
+                head.next=null;
+                head=null;
+                tail=null;
+            }
+        }
+        else if(location>=size){
+            Node tempNode=head;
+            for (int i=0; i<size-1; i++){
+                tempNode=tempNode.next;
+            }
+            if (tempNode==head){
+                head.next=null;
+                head=null;
+                tail=null;
+                size--;
+                return;
+            }
+            tempNode.next=head;
+            tail=tempNode;
+            size--;
+        }else {
+            Node tempNode=head;
+            for (int i=0; i<location-1; i++){
+                tempNode=tempNode.next;
+            }
+            tempNode.next=tempNode.next.next;
+            size--;
+        }
+
+    }
 }
 
 
