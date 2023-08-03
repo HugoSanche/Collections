@@ -120,6 +120,17 @@ public class CircularSingleLinkedList {
         }
 
     }
+    //Time Complexity O(1)
+    //Space Complexity O(1)
+    public void deleteCSLL(){
+        if (head==null){
+            System.out.println("The circular single linked list is null");
+        }
+        head=null;
+        tail.next=null; //tail.next have the reference of the last node
+        tail=null;
+
+    }
 }
 
 
