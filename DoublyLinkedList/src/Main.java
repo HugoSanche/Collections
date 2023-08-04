@@ -5,7 +5,8 @@ public class Main {
         dll.insertDLL(2,0);
         dll.insertDLL(3,1);
         dll.insertDLL(4,7);
-        dll.transverseDLL();
+        dll.traversalDLL();
+        dll.reverseTraversalDLL();
         //System.out.println(dll.head.value);
     }
 }

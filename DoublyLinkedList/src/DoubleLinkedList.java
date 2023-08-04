@@ -36,6 +36,7 @@ public class DoubleLinkedList {
             tail.next=newNode;
             tail=newNode;
         }else{
+           // System.out.println(value);
             DoublyNode tempNode= head;
             int index=0;
             while (index<location-1){
@@ -44,15 +45,17 @@ public class DoubleLinkedList {
             }
             newNode.next=tempNode.next;
             newNode.previous=tempNode;
+
+            //tempNode.next.previous=tempNode;
             tempNode.next=newNode;
-            tempNode.next.previous=tempNode;
-          //  newNode.next.previous=newNode;
+           newNode.next.previous=newNode;
+
         }
         size++;
     }
     //Time Complexity: O(N)
     //Space Complexity: O(1)
-    public void transverseDLL(){
+    public void traversalDLL(){
 
         if (head!=null){
             DoublyNode tempNode=head;
@@ -62,6 +65,23 @@ public class DoubleLinkedList {
                     System.out.print("=>");
                 }
                 tempNode=tempNode.next;
+            }
+        }else{
+            System.out.println("The DLL does noy exists");
+        }
+        System.out.println("\n");
+    }
+    public void reverseTraversalDLL(){
+
+        if (head!=null){
+            DoublyNode tempNode=tail;
+            for (int i=size-1; i>=0; i--){
+                System.out.print(tempNode.value);
+                if (i>0){
+                    System.out.print("=>");
+                }
+
+                tempNode=tempNode.previous;
             }
         }else{
             System.out.println("The DLL does noy exists");
