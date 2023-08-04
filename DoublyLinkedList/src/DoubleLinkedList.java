@@ -109,7 +109,7 @@ public class DoubleLinkedList {
         return false;
     }
 
-    public void deleteDLL(int location) {
+    public void deleteNodeDLL(int location) {
 
         if (head == null) {
             System.out.println("The DLL does noy exists");
@@ -149,5 +149,15 @@ public class DoubleLinkedList {
         tempNode.next.previous=tempNode;
         size--;
         }
+    }
+    public void deleteDLL(){
+        DoublyNode node=head;
+        for (int i=0; i<size;i++){
+            node.previous=null;
+            node=node.next;
+        }
+        head=null;
+        tail=null;
+        System.out.println("DLL was deleted");
     }
 }

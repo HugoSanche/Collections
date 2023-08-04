@@ -10,7 +10,7 @@ public class Main {
        // boolean result= dll.searchDLL(5);
       //  System.out.println(result);
         //System.out.println(dll.head.value);
-        dll.deleteDLL(1);
+       dll.deleteDLL();
         dll.traversalDLL();
     }
 }
