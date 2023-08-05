@@ -91,7 +91,8 @@ public class DoubleLinkedList {
         }
         System.out.println("\n");
     }
-
+    //Time Complexity: O(N)
+    //Space Complexity: O(1)
     public boolean searchDLL(int valueToSearch) {
 
         if (head != null) {
@@ -108,7 +109,8 @@ public class DoubleLinkedList {
         }
         return false;
     }
-
+    //Time Complexity: O(N)
+    //Space Complexity: O(1)
     public void deleteNodeDLL(int location) {
 
         if (head == null) {
@@ -150,6 +152,8 @@ public class DoubleLinkedList {
         size--;
         }
     }
+    //Time Complexity: O(N)
+    //Space Complexity: O(1)
     public void deleteDLL(){
         DoublyNode node=head;
         for (int i=0; i<size;i++){
