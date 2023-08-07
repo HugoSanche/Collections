@@ -7,5 +7,6 @@ public class Main {
         cdll.insertNode(4,5);
         cdll.traversalCSLL();
        // System.out.println(cdll.head.next.value);
+        cdll.reverseTraversalCSLL();
     }
 }
