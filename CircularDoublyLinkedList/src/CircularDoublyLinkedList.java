@@ -87,4 +87,20 @@ public class CircularDoublyLinkedList {
         System.out.println();
     }
 
+    public boolean searchCSLL(int valueToSearch) {
+        if (head != null) {
+            DoublyNode tempNode = head;
+            for (int i = 0; i < size; i++) {
+                if (tempNode.value == valueToSearch) {
+                    return true;
+                }
+                tempNode = tempNode.next;
+            }
+
+        } else {
+            System.out.println("CSLL does not exist");
+        }
+        System.out.println();
+        return false;
+    }
 }
