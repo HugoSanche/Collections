@@ -8,7 +8,11 @@ public class Main {
         cdll.traversalCSLL();
        // System.out.println(cdll.head.next.value);
         cdll.reverseTraversalCSLL();
-        boolean result=cdll.searchCSLL(1);
-        System.out.println(result);
+       // boolean result=cdll.searchCSLL(1);
+       // System.out.println(result);
+        cdll.deleteNodeCSLL(6);
+        cdll.traversalCSLL();
+        cdll.deleteCDLL();
+        cdll.traversalCSLL();
     }
 }
