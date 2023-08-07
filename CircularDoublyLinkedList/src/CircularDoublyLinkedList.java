@@ -13,7 +13,7 @@ public class CircularDoublyLinkedList {
         newNode.value=valueNode;
         newNode.next=newNode;
         newNode.prev=newNode;
-
+        size=1;
         return head;
     }
     //Time complexity O(N)
@@ -50,4 +50,25 @@ public class CircularDoublyLinkedList {
         }
         size++;
     }
+    //Time complexity O(N)
+    //Space complexity O(1)
+    public void traversalCSLL(){
+        if (head!=null){
+            DoublyNode tempNode=head;
+                for (int i=0; i<size;i++){
+                   System.out.print(tempNode.value);
+                    if (i!=size-1){
+                        System.out.print("=>");
+                    }
+                    tempNode=tempNode.next;
+                }
+
+
+            }
+        else {
+            System.out.println("CSLL does not exist");
+            }
+        System.out.println();
+    }
+
 }
