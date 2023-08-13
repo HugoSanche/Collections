@@ -12,7 +12,7 @@ public class Main {
         System.out.println("*******");
         int result2=queueArray.peek();
         System.out.println(result2);
-        queueArray.delete();
+        //queueArray.delete();
         boolean isEmpty=queueArray.isEmpty();
         System.out.println(isEmpty);
     }
