@@ -8,6 +8,12 @@ public class TestCircularQueue {
         boolean result=circular.isEmpty();
         System.out.println(result);
         circular.enQueue(6);
+
+        //deQueue
+        int result1= circular.deQueue();
+        System.out.println(result1);
+        int result2= circular.deQueue();
+        System.out.println(result2);
     }
 
 }

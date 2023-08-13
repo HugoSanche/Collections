@@ -27,6 +27,9 @@ public class CircularQueue {
             return false;
         }
     }
+
+    //Time Complexity O(1)
+    //Space complexity O(1)
     public void enQueue(int value){
         if(isFull()){
             System.out.println("The circular Queue is full");
@@ -43,6 +46,25 @@ public class CircularQueue {
             }
             arr[topOfQueue]=value;
             System.out.println("Successfully inserted Circular queue with value "+value);
+        }
+    }
+    //Time Complexity O(1)
+    //Space complexity O(1)
+    public int deQueue(){
+        if(isEmpty()){
+            System.out.println("The ciruclar is empty");
+            return -1;
+        }else{
+            int result=arr[beginningOfQueue];
+            arr[beginningOfQueue]=0;
+            if (beginningOfQueue==topOfQueue){
+                beginningOfQueue=topOfQueue=-1;
+            }else if (beginningOfQueue+1==size){
+                beginningOfQueue=0;
+            }else{
+                beginningOfQueue++;
+            }
+            return result;
         }
     }
 }
