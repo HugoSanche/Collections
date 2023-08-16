@@ -67,6 +67,15 @@ public class CircularQueue {
             return result;
         }
     }
+    //peek
+    public int peek(){
+        if(isEmpty()){
+            System.out.println("The circular queue is empty");
+            return -1;
+        }else{
+            return arr[beginningOfQueue];
+        }
+    }
 }
 
 
