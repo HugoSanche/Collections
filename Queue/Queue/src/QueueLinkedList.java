@@ -36,12 +36,24 @@ public class QueueLinkedList {
         }
         return value;
     }
+    //Time Complexity O(1)
+    //Space complexity O(1)
     public int peek(){
         if(isEmpty()){
             System.out.println("The circular linked list is empty");
             return -1;
         }else{
             return list.head.value;
+        }
+    }
+    public void delete(){
+        if (isEmpty()){
+            System.out.println("The circular linked list is empty");
+        }
+        else{
+          list.head=null;
+          list.tail=null;
+            System.out.println("The circular linked list successfully deleted");
         }
     }
 }

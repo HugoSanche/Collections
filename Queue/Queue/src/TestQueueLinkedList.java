@@ -8,6 +8,7 @@ public class TestQueueLinkedList {
         System.out.println(result);
         int result2= queue.peek();
         System.out.println(result2);
+        queue.delete();
     }
 
 
