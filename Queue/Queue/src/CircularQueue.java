@@ -4,6 +4,8 @@ public class CircularQueue {
     int beginningOfQueue;
     int size;
 
+    //Time Complexity O(1)
+    //Space complexity O(N)
     public CircularQueue( int size) {
         this.arr = new int[size];
         this.topOfQueue = -1;

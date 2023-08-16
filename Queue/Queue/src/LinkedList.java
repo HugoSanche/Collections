@@ -1,5 +1,5 @@
 public class LinkedList {
-    public class SinglyLinkedList {
+
         public Node head;
         public Node tail;
 
@@ -120,6 +120,6 @@ public class LinkedList {
             tail=null;
             System.out.println("The sLL deleted successfully");
         }
-    }
+
 
 }
