@@ -4,8 +4,10 @@ public class TestQueueLinkedList {
         queue.enQueue(10);
         queue.enQueue(20);
         queue.enQueue(30);
-        boolean result= queue.isEmpty();
+        int result= queue.peek();
         System.out.println(result);
+        int result2= queue.peek();
+        System.out.println(result2);
     }
 
 
