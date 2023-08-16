@@ -14,4 +14,31 @@ public class QueueLinkedList {
             return false;
         }
     }
+    //enQueue
+    public void enQueue(int value){
+        list.insertInLinkedList(value,list.size);
+        System.out.println("Successufully insert value in circular queue");
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
