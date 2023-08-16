@@ -17,6 +17,8 @@ public class TestCircularQueue {
 
         int result3=circular.peek();
         System.out.println(result3);
+
+        circular.deleted();
     }
 
 }

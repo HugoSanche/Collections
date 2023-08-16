@@ -68,6 +68,8 @@ public class CircularQueue {
         }
     }
     //peek
+    //Time Complexity O(1)
+    //Space complexity O(1)
     public int peek(){
         if(isEmpty()){
             System.out.println("The circular queue is empty");
@@ -75,6 +77,12 @@ public class CircularQueue {
         }else{
             return arr[beginningOfQueue];
         }
+    }
+    //Time Complexity O(1)
+    //Space complexity O(1)
+    public void deleted(){
+        arr=null;
+        System.out.println("The circular queue is successfully deleted");
     }
 }
 
