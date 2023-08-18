@@ -20,5 +20,13 @@ public class Stack {
             return false;
         }
     }
+    public boolean isFull(){
+        if(topOfStack==arr.length-1){
+            System.out.println("The stack is full");
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }
