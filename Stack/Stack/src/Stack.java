@@ -15,7 +15,6 @@ public class Stack {
     //space complexity O(1)
     public boolean isEmpty() {
         if (topOfStack == -1) {
-            System.out.println("The Stack is empty");
             return true;
         } else {
             return false;
@@ -50,6 +49,7 @@ public class Stack {
     //this method deleted the last value of stack
     public  int pop(){
         if(isEmpty()){
+            System.out.println("The Stack is empty");
             return -1;
         }else{
             int valueStack=arr[topOfStack];
@@ -57,6 +57,17 @@ public class Stack {
             return valueStack;
         }
     }
+    //time complexity O(1)
+    //space complexity O(1)
+    public int peek(){
+        if(isEmpty()){
+            System.out.println("The Stack is empty");
+            return -1;
+        }else{
+            return arr[topOfStack];
+        }
+    }
+    
 }
 
 

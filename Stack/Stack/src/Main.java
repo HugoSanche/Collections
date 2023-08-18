@@ -13,5 +13,8 @@ public class Main {
 
         int result1=stack.pop();
         System.out.println(result1);
+
+        int result2=stack.peek();
+        System.out.println(result2);
     }
 }
