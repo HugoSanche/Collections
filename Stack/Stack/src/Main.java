@@ -8,7 +8,10 @@ public class Main {
         stack.push(30);
         stack.push(40);
         stack.push(50);
-        stack.push(60);
+        int result=stack.pop();
+        System.out.println(result);
 
+        int result1=stack.pop();
+        System.out.println(result1);
     }
 }

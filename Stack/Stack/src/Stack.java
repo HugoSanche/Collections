@@ -6,8 +6,8 @@ public class Stack {
     //time complexity O(1)
     //space complexity O(N)
     public Stack(int size) {
-        this.arr = new int[size];
-        this.topOfStack = -1;
+        this.arr = new int[size]; //created new stack
+        this.topOfStack = -1; //if = -1 is empty
         System.out.println("The Stack was created with size " + size);
     }
 
@@ -15,6 +15,7 @@ public class Stack {
     //space complexity O(1)
     public boolean isEmpty() {
         if (topOfStack == -1) {
+            System.out.println("The Stack is empty");
             return true;
         } else {
             return false;
@@ -31,6 +32,8 @@ public class Stack {
     }
     //time complexity O(1)
     //space complexity O(1)
+
+    //this method insert new value in the stack
     public void push(int value){
      if(isFull()){
       //   System.out.println(value);
@@ -41,4 +44,19 @@ public class Stack {
          System.out.println("The value is successfully inserted");
      }
     }
+    //time complexity O(1)
+    //space complexity O(1)
+
+    //this method deleted the last value of stack
+    public  int pop(){
+        if(isEmpty()){
+            return -1;
+        }else{
+            int valueStack=arr[topOfStack];
+            topOfStack--;
+            return valueStack;
+        }
+    }
 }
+
+
