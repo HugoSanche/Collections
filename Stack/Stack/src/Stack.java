@@ -20,13 +20,25 @@ public class Stack {
             return false;
         }
     }
+    //time complexity O(1)
+    //space complexity O(1)
     public boolean isFull(){
         if(topOfStack==arr.length-1){
-            System.out.println("The stack is full");
             return true;
         }else{
             return false;
         }
     }
-
+    //time complexity O(1)
+    //space complexity O(1)
+    public void push(int value){
+     if(isFull()){
+      //   System.out.println(value);
+         System.out.println("The Stack is full");
+     } else{
+         topOfStack++;
+         arr[topOfStack]=value;
+         System.out.println("The value is successfully inserted");
+     }
+    }
 }
