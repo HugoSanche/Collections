@@ -20,23 +20,16 @@ public class Shuffle {
         return result;
     }
     public static  int[] shuffle2(int[] nums, int n) {
-        int len = nums.length;
-        System.out.println(Arrays.toString(nums));
-        // to store the pair of numbers in right half of the original array
-        for (int i = n; i < len; i++) {
-            nums[i] = (nums[i] * 1024) + nums[i - n];
-        }
-        System.out.println(Arrays.toString(nums));
-        int index = 0;
-        // to retrive values from the pair of numbers and placing those retrieved value at their desired position
-        for (int i = n; i < len; i++, index += 2) {
-           // System.out.println(index);
-           // System.out.println(nums[i]);
-            nums[index] = nums[i] % 1024;
-           // System.out.println(nums[index]);
-            nums[index + 1] = nums[i] / 1024;
-        }
 
+        for(int i=0; i<n;i++){
+            nums[n+i]=(nums[n+i]*1024)+nums[i];
+        }
+        System.out.println(Arrays.toString(nums));
+       int index=0;
+        for (int i=0;i<n; i++, index+=2){
+                nums[index]=nums[n+i]%1024;
+                nums[index+1]=nums[n+i]/1024;
+        }
         return nums;
     }
 }
