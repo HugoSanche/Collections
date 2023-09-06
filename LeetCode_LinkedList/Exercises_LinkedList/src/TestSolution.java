@@ -3,27 +3,28 @@ public class TestSolution {
 
 
         LinkedListLeet ll=new LinkedListLeet();
-        ll.createLL(1);
-        ll.insertLL(2);
-        ll.insertLL(3);
-        ll.insertLL(4);
-        ll.insertLL(5);
-      
+        ll.createLL(9);
+        ll.insertLL(9);
+        ll.insertLL(9);
+        ll.insertLL(9);
+        ll.insertLL(9);
+        ll.insertLL(9);
+        ll.insertLL(9);
 
-      //  ll.traversalLL();
-                                                                                           ll.createLL(9);
-        LinkedListLeet ll2=new LinkedListLeet();                                                                                ll.insertLL(9);
-        ll2.createLL(6);                                                                                                         ll.insertLL(9);
-        ll2.insertLL(7);                                                                                                         ll.insertLL(9);
-        ll2.insertLL(8);
-        ll2.insertLL(11);
+     //  ll.traversalLL();
+        LinkedListLeet ll2=new LinkedListLeet();
+        ll2.createLL(9);
+        ll2.insertLL(9);
+        ll2.insertLL(9);
+        ll2.insertLL(9);
         //ll2.traversalLL();
 
         Solution solution=new Solution();
         ListNode result=solution.addTwoNumbers(ll.head,ll2.head);
 
-        ll.deleteSLL();
-        ll2.deleteSLL();
+        ListNode.transversal(result);
+      //  ll.deleteSLL();
+      //  ll2.deleteSLL();
        // ListNode.transversal(ll.head);
 
         /*

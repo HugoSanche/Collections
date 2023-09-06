@@ -14,7 +14,7 @@ public class ListNode {
     public static void transversal(ListNode list){
 
          while(list !=null){
-             System.out.println(list.val);
+             System.out.print(list.val);
              if (list !=null) {
                  System.out.print("-> ");
              }

@@ -3,8 +3,9 @@ public class Solution {
             int carry=0;
             ListNode temp= new ListNode(0);
             ListNode newList=temp;
-            while(l1 !=null || l2!=null){
-                System.out.println("l1 value "+l1.val);
+           //  ListNode newList=new ListNode(0);
+            while(l1 !=null || l2!=null || carry !=0){
+              //  System.out.println("l1 value "+l1.val);
 
                 int result=carry;
                 if (l1 !=null){
