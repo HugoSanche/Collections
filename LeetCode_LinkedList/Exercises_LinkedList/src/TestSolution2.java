@@ -25,5 +25,55 @@ public class TestSolution2 {
 
         ListNode intersec=solution.findIntersection(ll,ll2);
         System.out.println(intersec.val);
+
+        System.out.println("***************LET CODE********************");
+
+        //Add values in first node
+        ListNode node1=new ListNode(4);
+        ListNode tempNode1=node1;
+        node1.next=new ListNode(1);
+        node1=node1.next;
+        ListNode.transversal(tempNode1);
+
+        //Add values in second node
+        ListNode node2=new ListNode(5);
+        ListNode tempNode2=node2;
+        node2.next=new ListNode(6);
+        node2=node2.next;
+        node2.next=new ListNode(1);
+        node2=node2.next;
+
+        //add same node in two nodes
+        ListNode sameNode=new ListNode(8);
+        //node one
+        node1.next=sameNode;
+        node1=node1.next;
+
+        //node two
+        node2.next=sameNode;
+        node2=node2.next;
+
+        ListNode sameNode2=new ListNode(4);
+        //node one
+        node1.next=sameNode2;
+        node1=node1.next;
+
+        //node two
+        node2.next=sameNode2;
+        node2=node2.next;
+
+        ListNode sameNode3=new ListNode(5);
+        //node one
+        node1.next=sameNode3;
+       // node1=node1.next;
+
+        //node two
+        node2.next=sameNode3;
+       // node2=node2.next;
+
+        ListNode.transversal(tempNode2.next);
+
+        ListNode inter=solution.findIntersection2(tempNode1,tempNode2);
+        System.out.println(inter.val);
     }
 }

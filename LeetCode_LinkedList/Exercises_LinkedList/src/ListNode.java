@@ -23,4 +23,13 @@ public class ListNode {
             System.out.println();
 
     }
+
+    public void addSameNode(LinkedListLeet llA,LinkedListLeet llB,int nodeValue){
+        ListNode newNode=new ListNode();
+        newNode.val=nodeValue;
+        llA.tail.next=newNode;
+        llA.tail=newNode;
+        llB.tail.next=newNode;
+        llB.tail=newNode;
+    }
 }
