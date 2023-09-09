@@ -18,7 +18,7 @@ public class Test_BinaryToDecimal {
         node1.next=new ListNode(1);
 
         ListNode.transversal(tempNode1);
-        int result=solution.getDecimalValue(tempNode1);
+        int result=solution.getDecimalValue2(tempNode1);
         System.out.println(result);
 
     }
