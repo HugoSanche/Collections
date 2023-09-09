@@ -20,4 +20,13 @@ public class BinaryToDecimal {
         }
         return (int) operation;
     }
+    public int getDecimalValue2(ListNode head) {
+        int res = 0;
+        while(head!=null){
+            res = res*2 + head.val;
+            head = head.next;
+        }
+        return res;
+    }
+
 }
