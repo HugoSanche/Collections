@@ -20,4 +20,35 @@ public class Palindrome {
         }
         return true;
     }
+    public boolean isPalindrome2(ListNode head) {
+        ListNode slow=head, faster=head,prev,next;
+
+        while(faster!=null && faster.next!=null){
+            slow=slow.next;
+            faster=faster.next.next;
+        }
+      prev=null;
+
+        while (slow!=null){
+            next=slow.next;
+            slow.next=prev;
+            prev=slow;
+            slow=next;
+        }
+        faster=head;
+        while(prev!=null){
+            if (prev.val!=faster.val){
+                return false;
+            }
+            prev=prev.next;
+            faster=faster.next;
+        }
+
+return true;
+    }
+    public boolean isPalindrome2(ListNode head) {
+
+        
+        return true;
+    }
 }
