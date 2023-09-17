@@ -46,9 +46,28 @@ public class Palindrome {
 
 return true;
     }
-    public boolean isPalindrome2(ListNode head) {
-
-        
+    public boolean isPalindrome3(ListNode head) {
+        ListNode slow=head, faster=head,prev,next;
+        while(faster!=null && faster.next!=null){
+            slow=slow.next;
+            faster=faster.next.next;
+        }
+        prev=null;
+        while(slow!=null){
+            next=slow.next;
+            slow.next=prev;
+            prev=slow;
+            slow=next;
+        }
+        faster=head;
+        slow=prev;
+        while (slow!=null){
+            if(slow.val!=faster.val){
+                return false;
+            }
+            slow=slow.next;
+            faster=faster.next;
+        }
         return true;
     }
 }
