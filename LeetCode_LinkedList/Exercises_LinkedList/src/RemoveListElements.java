@@ -1,10 +1,13 @@
 public class RemoveListElements {
     public ListNode removeElements(ListNode head, int val) {
-       ListNode prev=head,tempNode=head;
+       ListNode tempNode=head, prev=head;
+
+
         while (head.val==val && head!=null){
-            head=head.next;
-            prev.next=null;
-            prev=head;
+           // prev=head.next;
+            head.next=null;
+            head=prev.next;
+            prev=prev.next;
         }
 
         head=head.next;
