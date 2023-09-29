@@ -1,2 +1,2 @@
-package PACKAGE_NAME;public class text {
+public class text {
 }
