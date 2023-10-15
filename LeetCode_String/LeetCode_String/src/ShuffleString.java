@@ -23,11 +23,11 @@ import java.util.HashMap;
 
 public class ShuffleString {
     public static void main(String[] args) {
-        String s="abc";
-        int[] indices={0,1,2};
+        String s="codeleet";
+        int[] indices={4,5,6,7,0,2,1,3};
 
       //  Arrays.sort(indices);
-        String result= restoreString(s,indices);
+        String result= restoreString2(s,indices);
         System.out.println(result);
     }
     public static String restoreString(String s, int[] indices) {
@@ -42,6 +42,16 @@ public class ShuffleString {
         }
         return word.toString();
     }
+    public static String restoreString2(String s, int[] indices) {
+        char[] c= new char[indices.length];
 
+        StringBuilder word= new StringBuilder();
+        for (int i=0;i<indices.length; i++){
+             c[indices[i]]=s.charAt(i);
+        }
+        word.append(c);
+
+        return word.toString();
+    }
 
 }
