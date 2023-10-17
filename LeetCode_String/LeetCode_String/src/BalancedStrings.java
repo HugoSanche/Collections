@@ -26,13 +26,40 @@
 //Explanation: s can be split into "LLLLRRRR".
 public class BalancedStrings {
     public static void main(String[] args) {
-    String string ="RLRRRLLRLL";
+        String string ="LLLLRRRR";
 
-    //int result = balancedStringSplit(string);
-
+        int result = balancedStringSplit(string);
+        System.out.println(result);
     }
 
-//    public static int balancedStringSplit(String s) {
-//
-//    }
+    public static int balancedStringSplit(String s) {
+       // int x=0;
+        int countR=0;
+        int countL=0;
+        int result=0;
+//        while (x<s.length()){
+//            if (s.charAt(x)=='R'){
+//                countR++;
+//            }
+//            if (s.charAt(x)=='L'){
+//                countL++;
+//            }
+//            if (countR==countL){
+//                result++;
+//            }
+//            x++;
+//        }
+        for (int i=0; i<s.length(); i++){
+            if (s.charAt(i)=='R'){
+                countR++;
+            }else{
+                countL++;
+            }
+
+            if (countR==countL){
+                result++;
+            }
+        }
+        return result;
+    }
 }
