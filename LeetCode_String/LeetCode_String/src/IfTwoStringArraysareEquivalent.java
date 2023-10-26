@@ -30,10 +30,10 @@
 public class IfTwoStringArraysareEquivalent {
 
     public static void main(String[] args) {
-        String[] word1={"abc", "d", "defg"};
-        String[] word2={"abcddefg"};
+        String[] word1={"ab", "c"};
+        String[] word2={"a", "bc"};
 
-        boolean result=arrayStringsAreEqual(word1,word2);
+        boolean result=arrayStringsAreEqual2(word1,word2);
         System.out.println(result);
 
     }
@@ -50,5 +50,13 @@ public class IfTwoStringArraysareEquivalent {
         return equivalent;
 
     }
+    public static boolean arrayStringsAreEqual2(String[] word1, String[] word2) {
+        String allWord1=String.join("",word1);
+        String allword2=String.join("",word2);
 
+        boolean equivalent=allWord1.equals(allword2);
+
+        return equivalent;
+
+    }
 }
