@@ -23,13 +23,37 @@ public class DirectChaining {
      return sum%M;
     }
 
+    public void insertHashTable(String word){
+        int newIndex=modAscIIHashFunction(word, hashTable.length);
+        if(hashTable[newIndex]==null){
+            hashTable[newIndex]=new LinkedList<String>();
+            hashTable[newIndex].add(word);
+        }else{
+            hashTable[newIndex].add(word);
+        }
+    }
+public void printHashTable(){
+        if (hashTable==null){
+            System.out.println("Hashtable does not exits");
+            return;
+        }else{
+            System.out.println("-------HashTable-----------------");
+            for (int i=0;i<hashTable.length; i++){
+                System.out.println("Hashtable index: "+i+", key: "+hashTable[i]);
+            }
+        }
+}
     public static void main(String[] args) {
         int result;
 
 
-        DirectChaining directChaining=new DirectChaining(5);
-        result=directChaining.modAscIIHashFunction("Hugo", 2);
-        System.out.println(result);
+        DirectChaining directChaining=new DirectChaining(13);
+        directChaining.insertHashTable("The");
+        directChaining.insertHashTable("quick");
+        directChaining.insertHashTable("brown");
+        directChaining.insertHashTable("fox");
+        directChaining.insertHashTable("over");
+        directChaining.printHashTable();
     }
 }
 
