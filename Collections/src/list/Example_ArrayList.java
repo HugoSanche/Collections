@@ -8,7 +8,7 @@ public class Example_ArrayList {
 
         //Implementa list interface
         //facil acceso a los elementos
-        //para agregar o eliminar es muy lento
+        //para agregar o eliminar es muy lento. Ya que tiene que hacer una copia del arreglo para agregar o eliminar
         //Seria util para listas que no cambian mucho y son mas para consulta
         //recuerda que hereda los metodos de la interface collection.- size(), add(), remove(),isEmpty(), contains(), containsAll()
 
@@ -56,5 +56,7 @@ public class Example_ArrayList {
         //Compara ambas listas
         System.out.println("\nLas listas son iguales; "+arrayList.containsAll(otherNames));
 
+        arrayList.clear();
+        System.out.println(arrayList);
     }
 }
