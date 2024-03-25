@@ -1,6 +1,7 @@
 package list;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 public class Example_ArrayList {
@@ -55,6 +56,12 @@ public class Example_ArrayList {
 
         //Compara ambas listas
         System.out.println("\nLas listas son iguales; "+arrayList.containsAll(otherNames));
+
+        //ordenando la lista.
+        //Recuerda que la interface Collections tiene el metodo sort
+        Collections.sort(otherNames);
+        otherNames.forEach(a-> System.out.println(a));
+
 
         arrayList.clear();
         System.out.println(arrayList);
